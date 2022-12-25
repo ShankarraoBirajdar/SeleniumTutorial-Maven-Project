@@ -114,7 +114,7 @@ public class Test {
 		driver.switchTo().alert().dismiss();
 		driver.switchTo().alert().getText();
 		driver.switchTo().alert().sendKeys("Shankar");
-		driver.switchTo().window("parentWinfow");
+		driver.switchTo().window("parentWindow");
 
 		Select select = new Select(linkText);
 
@@ -147,8 +147,10 @@ public class Test {
 		
 		Actions builder = new Actions(driver);
 		Action seriesOfActions =  
-				builder.moveToElement(txtUsername)
+				builder
+				.moveToElement(txtUsername)
 				.click()
+				.dragAndDrop(firstElement, txtUsername)
 				.keyDown(txtUsername, Keys.SHIFT)
 				.sendKeys(txtUsername, "hello")
 				.keyUp(txtUsername, Keys.SHIFT)
